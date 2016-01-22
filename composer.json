@@ -16,10 +16,10 @@
         "issues": "https://github.com/raphaelstolt/json-merge-patch/issues"
     },
     "require": {
-        "php": ">=5.4.0"
+        "php": "^5.4 || ^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.8",
+        "phpunit/phpunit": "^4.8 || ^5.0",
         "fabpot/php-cs-fixer": "~1.11"
     },
     "autoload": {
@@ -30,6 +30,11 @@
     "autoload-dev": {
         "psr-4": {
             "Rs\\Json\\Merge\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "5.4"
         }
     },
     "minimum-stability": "stable",
