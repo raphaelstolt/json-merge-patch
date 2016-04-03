@@ -4,12 +4,12 @@
 
 This is an(other) implementation of [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) written in PHP. For a PHP 5.3 compatible version please use the implementation by [@clue](https://github.com/clue/php-json-merge-patch).
 
-## Installation via Composer
+### Installation via Composer
 ``` bash
 $ composer require stolt/json-merge-patch
 ```
 
-## Usage
+### Usage
 
 Now you can use JSON Merge Patch for PHP via the available Composer **autoload file**.
 
@@ -59,13 +59,16 @@ $mergedPatchDocument = (new Patch())->merge(
 ); // '{"a":"b","b":"c"}'
 ```
 
-## Changelog
+### Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information.
 
-## Testing
+### Running tests
 ``` bash
 $ composer test
 ```
 
-## License
-This library is licensed under the MIT license. Please see [License file](LICENSE.md) for more information.
+### Contributing
+Please see [CONTRIBUTING](CONTRIBUTING.md) for more details.
+
+### License
+This library is licensed under the MIT license. Please see [LICENSE](LICENSE.md) for more information.
