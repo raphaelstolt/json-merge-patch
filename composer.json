@@ -1,6 +1,6 @@
 {
     "name": "stolt/json-merge-patch",
-    "description": "Implementation of JSON Merge Patch (https://tools.ietf.org/html/rfc7396)",
+    "description": "Implementation of JSON Merge Patch (https://tools.ietf.org/html/rfc7396).",
     "keywords": ["json", "json merge patch", "json modification"],
     "homepage": "https://github.com/raphaelstolt/json-merge-patch",
     "type": "library",
