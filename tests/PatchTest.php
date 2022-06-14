@@ -3,7 +3,7 @@
 namespace Rs\Json\Merge\Tests;
 
 use Rs\Json\Merge\Patch;
-use PHPUnit_Framework_TestCase as PHPUnit;
+use PHPUnit\Framework\TestCase as PHPUnit;
 
 class PatchTest extends PHPUnit
 {

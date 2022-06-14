@@ -4,8 +4,7 @@ namespace Rs\Json\Merge;
 
 class Patch
 {
-
-    const MEDIA_TYPE = "application/merge-patch+json";
+    public const MEDIA_TYPE = "application/merge-patch+json";
 
     /**
      * Apply patch on target document.
@@ -131,8 +130,8 @@ class Patch
         foreach ($patchDocument2Vars as $var => $value) {
             if (isset($patchDocument1Vars[$var])) {
                 $patchDocument->$var = $this->merge(
-                  $patchDocument1->$var,
-                  $patchDocument2->$var
+                    $patchDocument1->$var,
+                    $patchDocument2->$var
                 );
             } else {
                 $patchDocument->$var = $patchDocument2->$var;
