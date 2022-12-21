@@ -1,6 +1,6 @@
 # JSON Merge Patch for PHP
 
-![Test](https://github.com/raphaelstolt/json-merge-patch/workflows/Test/badge.svg) [![Version](http://img.shields.io/packagist/v/stolt/json-merge-patch.svg?style=flat)](https://packagist.org/packages/stolt/json-merge-patch) [![PHP Version](http://img.shields.io/badge/php-7.4+-ff69b4.svg)](https://packagist.org/packages/stolt/json-merge-patch)
+![Test](https://github.com/raphaelstolt/json-merge-patch/workflows/Test/badge.svg) [![Version](http://img.shields.io/packagist/v/stolt/json-merge-patch.svg?style=flat)](https://packagist.org/packages/stolt/json-merge-patch) [![PHP Version](http://img.shields.io/badge/php-8.0+-ff69b4.svg)](https://packagist.org/packages/stolt/json-merge-patch)
 
 This is an(other) implementation of [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) written in PHP. For a PHP 5.3 compatible version please use the implementation by [@clue](https://github.com/clue/php-json-merge-patch).
 
