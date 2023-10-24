@@ -15,7 +15,7 @@ jobs:
 
         steps:
             -   name: Checkout
-                uses: actions/checkout@v2
+                uses: actions/checkout@v4
 
             -   name: Install PHP
                 uses: shivammathur/setup-php@v2
@@ -27,3 +27,6 @@ jobs:
 
             -   name: Coding styles
                 run: composer run-script cs-lint
+
+            -   name: Check leanness of package
+                run: composer run-script validate-gitattributes
