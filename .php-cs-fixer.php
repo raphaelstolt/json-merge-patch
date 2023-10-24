@@ -1,18 +1,26 @@
 <?php
-/*
- * This document has been generated with
- * https://mlocati.github.io/php-cs-fixer-configurator/#version:2.19.3|configurator
- * you can change this configuration by importing this file.
- */
-$config = new PhpCsFixer\Config();
-return $config
-    ->setRules([
-        '@PSR1' => true,
-        '@PSR12' => true,
-        'blank_line_after_namespace' => true,
-        'concat_space' => true,
-    ])
-    ->setFinder(PhpCsFixer\Finder::create()
-        ->exclude('vendor')
-        ->in(__DIR__)
-    );
+
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+
+$finder = Finder::create()
+    ->in([__DIR__, __DIR__ . DIRECTORY_SEPARATOR . 'tests']);
+
+$rules = [
+    'psr_autoloading' => false,
+    '@PSR2' => true,
+    'phpdoc_order' => true,
+    'ordered_imports' => true,
+    'native_function_invocation' => [
+        'include' => ['@internal'],
+        'exclude' => ['file_put_contents']
+    ]
+];
+
+$cacheDir = \getenv('HOME') ? \getenv('HOME') : __DIR__;
+
+$config = new Config();
+
+return $config->setRules($rules)
+    ->setFinder($finder)
+    ->setCacheFile($cacheDir . '/.php-cs-fixer.cache');

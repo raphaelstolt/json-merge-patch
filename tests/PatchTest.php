@@ -2,8 +2,8 @@
 
 namespace Rs\Json\Merge\Tests;
 
-use Rs\Json\Merge\Patch;
 use PHPUnit\Framework\TestCase as PHPUnit;
+use Rs\Json\Merge\Patch;
 
 class PatchTest extends PHPUnit
 {
@@ -22,8 +22,8 @@ class PatchTest extends PHPUnit
     public function applyWorksAsExpected($targetDocument, $patchDocument, $expectedPatchedDocument)
     {
         $this->assertEquals(
-            json_decode($expectedPatchedDocument),
-            (new Patch())->apply(json_decode($targetDocument), json_decode($patchDocument))
+            \json_decode($expectedPatchedDocument),
+            (new Patch())->apply(\json_decode($targetDocument), \json_decode($patchDocument))
         );
     }
 
@@ -34,8 +34,8 @@ class PatchTest extends PHPUnit
     public function generateWorksAsExpected($sourceDocument, $targetDocument, $expectedPatch)
     {
         $this->assertEquals(
-            json_decode($expectedPatch),
-            (new Patch())->generate(json_decode($sourceDocument), json_decode($targetDocument))
+            \json_decode($expectedPatch),
+            (new Patch())->generate(\json_decode($sourceDocument), \json_decode($targetDocument))
         );
     }
 
@@ -46,8 +46,8 @@ class PatchTest extends PHPUnit
     public function mergeWorksAsExpected($patchDocument1, $patchDocument2, $expectedMerge)
     {
         $this->assertEquals(
-            json_decode($expectedMerge),
-            (new Patch())->merge(json_decode($patchDocument1), json_decode($patchDocument2))
+            \json_decode($expectedMerge),
+            (new Patch())->merge(\json_decode($patchDocument1), \json_decode($patchDocument2))
         );
     }
 

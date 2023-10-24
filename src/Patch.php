@@ -15,11 +15,11 @@ class Patch
      */
     public function apply($targetDocument, $patchDocument)
     {
-        if ($targetDocument === null || !is_object($targetDocument) || is_array($targetDocument)) {
+        if ($targetDocument === null || !\is_object($targetDocument) || \is_array($targetDocument)) {
             $targetDocument = new \stdClass();
         }
 
-        if ($patchDocument === null || !is_object($patchDocument) || is_array($patchDocument)) {
+        if ($patchDocument === null || !\is_object($patchDocument) || \is_array($patchDocument)) {
             return $patchDocument;
         }
 
@@ -58,7 +58,7 @@ class Patch
             return null;
         }
 
-        if (is_array($sourceDocument)) {
+        if (\is_array($sourceDocument)) {
             if ($sourceDocument !== $targetDocument) {
                 return $targetDocument;
             }
@@ -67,12 +67,12 @@ class Patch
         }
 
         $patchDocument = new \stdClass();
-        $sourceDocumentVars = get_object_vars($sourceDocument);
-        $targetDocumentVars = get_object_vars($targetDocument);
+        $sourceDocumentVars = \get_object_vars($sourceDocument);
+        $targetDocumentVars = \get_object_vars($targetDocument);
 
         foreach ($targetDocumentVars as $var => $value) {
-            if (!in_array($var, array_keys($sourceDocumentVars))
-                || !in_array($value, array_values($sourceDocumentVars))
+            if (!\in_array($var, \array_keys($sourceDocumentVars))
+                || !\in_array($value, \array_values($sourceDocumentVars))
             ) {
                 $patchDocument->$var = $value;
             }
@@ -84,23 +84,23 @@ class Patch
                 break;
             }
 
-            if (is_object($value)) {
-                if ($sourceDocument->$var !== null && is_object($sourceDocument->$var)) {
+            if (\is_object($value)) {
+                if ($sourceDocument->$var !== null && \is_object($sourceDocument->$var)) {
                     $subPatch = $this->generate($sourceDocument->$var, $targetDocument->$var);
                     if ($subPatch !== null) {
                         $patchDocument->$var = $subPatch;
                     }
                 }
-            } elseif (!in_array($var, array_keys($targetDocumentVars))
-                      || !in_array($value, array_values($targetDocumentVars))) {
+            } elseif (!\in_array($var, \array_keys($targetDocumentVars))
+                      || !\in_array($value, \array_values($targetDocumentVars))) {
                 $sourceDocument->$var = null;
-                if (!in_array($var, array_keys($targetDocumentVars))) {
+                if (!\in_array($var, \array_keys($targetDocumentVars))) {
                     $patchDocument->$var = null;
                 }
             }
         }
 
-        if (count(get_object_vars($patchDocument)) > 0) {
+        if (\count(\get_object_vars($patchDocument)) > 0) {
             return $patchDocument;
         }
 
@@ -118,14 +118,14 @@ class Patch
     public function merge($patchDocument1, $patchDocument2)
     {
         if ($patchDocument1 === null || $patchDocument2 === null
-            || !is_object($patchDocument1) || !is_object($patchDocument2)
+            || !\is_object($patchDocument1) || !\is_object($patchDocument2)
         ) {
             return $patchDocument2;
         }
 
         $patchDocument = $patchDocument1;
-        $patchDocument1Vars = get_object_vars($patchDocument1);
-        $patchDocument2Vars = get_object_vars($patchDocument2);
+        $patchDocument1Vars = \get_object_vars($patchDocument1);
+        $patchDocument2Vars = \get_object_vars($patchDocument2);
 
         foreach ($patchDocument2Vars as $var => $value) {
             if (isset($patchDocument1Vars[$var])) {
