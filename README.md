@@ -6,7 +6,7 @@ This is an(other) implementation of [JSON Merge Patch](https://tools.ietf.org/ht
 
 ### Installation via Composer
 ``` bash
-$ composer require stolt/json-merge-patch
+composer require stolt/json-merge-patch
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ $mergedPatchDocument = (new Patch())->merge(
 
 ### Running tests
 ``` bash
-$ composer test
+composer test
 ```
 ### License
 This library is licensed under the MIT license. Please see [LICENSE](LICENSE.md) for more details.
